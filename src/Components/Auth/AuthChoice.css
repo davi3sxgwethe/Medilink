@@ -1,0 +1,50 @@
+.auth-choice-container {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.role-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.auth-btn {
+  background-color: #174ea6;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.auth-form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form-container input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.auth-form-container button {
+  background-color: #174ea6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
