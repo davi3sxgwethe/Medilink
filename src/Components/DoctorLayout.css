@@ -1,0 +1,62 @@
+/* src/components/DoctorLayout.css */
+
+.doctor-dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.page-content {
+  padding: 2rem;
+}
+
+.sidebar ul li .active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+

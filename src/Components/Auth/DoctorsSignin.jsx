@@ -17,9 +17,15 @@ const DoctorSignIn = () => {
         password
       });
 
+      console.log(res.data);
+
       if (res.data.success) {
+        // ✅ Save doctor name and full info
+        localStorage.setItem('doctorName', res.data.user.name);
+        localStorage.setItem('doctor', JSON.stringify(res.data.user));
+
         setMessage(res.data.success);
-        navigate('/uploadservices'); // Navigate on success
+        navigate('/doctor-dashboard'); // Navigate on success
       } else {
         setMessage('Unexpected response');
       }

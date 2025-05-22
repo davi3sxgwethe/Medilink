@@ -5,6 +5,7 @@ import axios from 'axios';
 export default function GetServicesPage() {
   const [services, setServices] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,16 +21,27 @@ export default function GetServicesPage() {
       });
   }, []);
 
-  const filteredServices =
-    selectedCategory === 'All'
-      ? services
-      : services.filter((service) => service.category === selectedCategory);
+  const filteredServices = services.filter((service) => {
+    const matchesCategory =
+      selectedCategory === 'All' || service.category === selectedCategory;
+    const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="container mt-5">
       <h2 className="text-center mb-4">Available Medical Services</h2>
 
-      <div className="d-flex justify-content-end mb-4">
+      <div className="d-flex justify-content-between mb-4">
+        <input
+          type="text"
+          className="form-control me-3"
+          placeholder="Search services..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ maxWidth: '300px' }}
+        />
         <select
           className="form-select w-auto"
           value={selectedCategory}

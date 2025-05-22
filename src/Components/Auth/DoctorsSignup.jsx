@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const DoctorSignUp = () => {
   const [form, setForm] = useState({
@@ -10,6 +11,7 @@ const DoctorSignUp = () => {
   });
 
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Only new addition
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,6 +23,7 @@ const DoctorSignUp = () => {
     try {
       const res = await axios.post('https://davi3s.pythonanywhere.com/api/doctor_signup', form);
       setMessage(res.data.success || 'Sign up successful!');
+      navigate('/doctor-dashboard'); // Only new addition
     } catch (error) {
       if (error.response && error.response.data.error) {
         setMessage(error.response.data.error);

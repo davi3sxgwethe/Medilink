@@ -36,6 +36,23 @@ const Homepage = () => {
             <h3>Upload Services</h3>
             <p>Doctors can add their expertise and availability for patient visibility.</p>
           </div>
+          <div className="feature-card">
+            <h3>Connect With Trusted Medical Services Near You</h3>
+            <p>Medilink helps patients access verified healthcare providers and allows service providers to reach more clients seamlessly.</p>
+          </div>
+          <div className="feature-card">
+            <h3>Your Gateway to Reliable Healthcare Services</h3>
+            <p>Discover and connect with certified medical professionals, or showcase your services to a broader audience through Medilink.</p>
+          </div>
+          <div className="feature-card">
+            <h3>Find the Care You Need, When You Need It</h3>
+            <p>Medilink bridges the gap between patients and trusted medical experts, making healthcare more accessible for everyone.</p>
+          </div>
+          <div className="feature-card">
+            <h3>Take Control of Your Healthcare Journey</h3>
+            <p>Whether you're seeking medical services or offering them, Medilink puts powerful tools at your fingertips.</p>
+          </div>
+          
         </div>
       </section>
     </div>

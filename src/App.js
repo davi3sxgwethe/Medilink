@@ -15,6 +15,11 @@ import GetServicesPage from './Components/Getservices'; // Match the casing exac
 import Carousel from './Components/Carousel/Carousel';
 import Footer from './Components/Footer/footer';
 import MakePayment from './Components/Makepayment/Makepayment';
+import DoctorDashboard from './Components/DoctorDashboard/Doctordashboard';
+import ViewAppointments from './Components/ViewAppointments.jsx/Viewappointments';
+import Messages from './Components/Messages/Messages';
+import Patients from './Components/Patients/Patients';
+import DoctorApprovalPage from './Components/DoctorApprovalPage';
 
 
 
@@ -50,6 +55,17 @@ function App() {
           <Route path="/signup/doctor" element={<DoctorsSignUp />} />
           <Route path="/signin/patient" element={<PatientSignIn />} />
           <Route path="/signup/patient" element={<PatientSignUp />} />
+          <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
+          <Route path="/viewappointments" element={<ViewAppointments/>} />
+          <Route path="/dashboard" element={<DoctorDashboard />} />
+          <Route path="/viewappointments" element={<ViewAppointments />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/signin/doctor" element={<DoctorsSignin/>} />
+          <Route path="/patients" element={<Patients/>}/>
+          <Route path="/admin/approve-doctors" element={<DoctorApprovalPage/>}/>
+          
+          
+
 
 
           

@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+}
+
+.doctor-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2em;
+  color: #333;
+}
+
+.subtext {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.date-info {
+  margin-top: 0.5em;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.dashboard-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 16px;
+}
+
+.dashboard-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.dashboard-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.dashboard-button.logout {
+  background-color: #dc3545;
+}
+
+.dashboard-button.logout:hover {
+  background-color: #a71d2a;
+}

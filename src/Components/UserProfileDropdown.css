@@ -1,0 +1,43 @@
+.profile-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-info {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  z-index: 1000;
+  width: 160px;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
