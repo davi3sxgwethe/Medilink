@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import './UserProfileDropdown.css'; // You’ll style it next
+import './UserProfileDropdown.css';
 
 const UserProfileDropdown = ({ user, onLogout, onChangePassword }) => {
   const [open, setOpen] = useState(false);
@@ -12,7 +12,7 @@ const UserProfileDropdown = ({ user, onLogout, onChangePassword }) => {
       <div className="profile-icon" onClick={toggleDropdown}>
         <FaUserCircle size={28} />
         <span className="profile-info">
-          {user.name} ({user.role})
+          {user?.name || "Guest"} ({user?.role || "User"})
         </span>
       </div>
 

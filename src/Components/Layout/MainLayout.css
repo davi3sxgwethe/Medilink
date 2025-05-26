@@ -1,0 +1,30 @@
+.layout-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Hamburger button */
+  .hamburger-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    background: #1b0e63;
+    color: white;
+    border: none;
+    font-size: 1.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Content behind sidebar */
+  .main-content {
+    padding: 2rem;
+    background: #f5f7fa;
+    min-height: 100vh;
+    transition: filter 0.3s ease;
+  }
+  
