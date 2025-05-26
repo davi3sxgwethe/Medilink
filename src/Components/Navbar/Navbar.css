@@ -1,41 +1,69 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2.5rem 3rem;
-    background-color: #0c1f4a; /* deep navy blue */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .navbar-logo a {
-    color: #ffffff;
-    font-size: 1.7rem;
-    font-weight: 700;
-    text-decoration: none;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .navbar-links li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-links li a:hover {
-    color: #ffb84d;
-    text-decoration: underline;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 3rem;
+  background-color: #0c1f4a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-  
-  
+.navbar-logo a {
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-logo a:hover {
+  transform: scale(1.1);
+  color: #ffb84d;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Glowing underline effect */
+.navbar-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: #ffb84d;
+  transition: width 0.4s ease-in-out;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #ffb84d;
+}
+
+/* On hover: scale + glowing underline slide-in */
+.navbar-links li a:hover {
+  color: #ffb84d;
+  transform: scale(1.1);
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
+}

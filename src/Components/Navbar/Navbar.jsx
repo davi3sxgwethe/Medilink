@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import UserProfileDropdown from '../UserProfileDropdown';
+// import UserProfileDropdown from '../UserProfileDropdown';
 
 const Navbar = () => {
   return (
@@ -15,7 +15,7 @@ const Navbar = () => {
         {/* <li><Link to="/uploadservices">Upload Service</Link></li> */}
         <li><Link to="/signin">Sign In</Link></li>
         <li><Link to="/signup">Sign Up</Link></li>
-        <UserProfileDropdown/>
+        {/* <UserProfileDropdown/> */}
       </ul>
     </nav>
   );
