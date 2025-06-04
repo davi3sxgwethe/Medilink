@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Auth.css'; // Add styling here
 
 const PatientSignUp = () => {
   const [form, setForm] = useState({
@@ -19,6 +20,14 @@ const PatientSignUp = () => {
 
     try {
       const response = await axios.post('https://davi3s.pythonanywhere.com/api/patient_signup', form);
+
+      // ✅ Store user credentials in localStorage
+      localStorage.setItem('user', JSON.stringify({
+        username: response.data.name || form.name,
+        email: response.data.email || form.email,
+        token: response.data.token // Optional, only if your backend provides it
+      }));
+
       setMessage(response.data.success || 'Signup successful!');
     } catch (error) {
       console.error('Signup error:', error);
@@ -27,35 +36,46 @@ const PatientSignUp = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h2>Patient Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-      {message && <p style={{ marginTop: '10px', color: 'green' }}>{message}</p>}
+    <div className="auth-wrapper">
+      <div className="auth-box">
+        <h2 className="auth-title">Create Account</h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <label>Email address</label>
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Password</label>
+          <input
+            name="password"
+            type="password"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Full Name</label>
+          <input
+            name="name"
+            type="text"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit" className="auth-button">Continue</button>
+        </form>
+
+        {message && <p className="auth-message">{message}</p>}
+
+        <p className="auth-footer">
+          Already have an account? <a href="/login">Log in</a>
+        </p>
+      </div>
     </div>
   );
 };

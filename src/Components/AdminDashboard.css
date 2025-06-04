@@ -1,0 +1,57 @@
+.admin-dashboard {
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #343a40;
+}
+
+.admin-message {
+  text-align: center;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.no-doctors {
+  text-align: center;
+  color: #6c757d;
+}
+
+.doctor-list {
+  list-style: none;
+  padding: 0;
+}
+
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #007bff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.approve-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.approve-btn:hover {
+  background: #218838;
+}

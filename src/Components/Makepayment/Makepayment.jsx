@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import './Makepayment.css'; // 👈 Import the CSS file
+import './Makepayment.css';
 
 const MakePayment = () => {
+  const location = useLocation();
+  const service = location.state?.service;
+
   const [phone, setPhone] = useState('');
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState(service?.cost || '');
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -22,10 +26,13 @@ const MakePayment = () => {
     const formData = new FormData();
     formData.append("phone", phone);
     formData.append("amount", amount);
+    formData.append("service_id", service?.id);
 
     try {
-      const response = await axios.post("https://davi3s.pythonanywhere.com/api/mpesa_payment"
-, formData);
+      const response = await axios.post(
+        "https://davi3s.pythonanywhere.com/api/mpesa_payment",
+        formData
+      );
       setStatus(response.data.message || "Payment initiated.");
     } catch (error) {
       console.error(error);
@@ -38,6 +45,28 @@ const MakePayment = () => {
   return (
     <div className="payment-container">
       <h2 className="payment-heading">Make Payment</h2>
+
+      {service ? (
+        <div className="service-summary">
+          <h3>Service Summary</h3>
+          <div className="summary-content">
+            <img
+              src={`https://davi3s.pythonanywhere.com/static/images/${service.image}`}
+              alt="Doctor"
+              className="doctor-photo"
+            />
+            <div className="summary-details">
+              <p><strong>Service:</strong> {service.title}</p>
+              <p><strong>Doctor:</strong> {service.doctor_name}</p>
+              <p><strong>Contact:</strong> {service.contact}</p>
+              <p><strong>Price:</strong> KES {service.cost || 'N/A'}</p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <p className="warning">No service information found. Please go back and select a service.</p>
+      )}
+
       <form onSubmit={handlePayment} className="payment-form">
         <div className="form-group">
           <label>Phone Number (e.g. 2547xxxxxxxx):</label>
@@ -57,11 +86,11 @@ const MakePayment = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             required
-            placeholder="Enter amount"
+            disabled
           />
         </div>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} className="pay-button">
           {loading ? "Processing..." : "Pay Now"}
         </button>
       </form>

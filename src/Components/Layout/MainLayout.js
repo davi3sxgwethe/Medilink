@@ -1,33 +1,24 @@
 import React, { useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import './MainLayout.css';
 
-const MainLayout = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const MainLayout = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
-    setSidebarOpen(prev => !prev);
+    setSidebarOpen((prev) => !prev);
   };
 
   return (
     <div className="layout-container">
-      {/* Hamburger menu button */}
-      <button
-        className="hamburger-button"
-        onClick={toggleSidebar}
-        aria-label="Toggle sidebar"
-      >
-        ☰
-      </button>
-
-      {/* Sidebar overlays content */}
-      {sidebarOpen && (
-        <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-      )}
-
-      <div className="main-content">
-        {children ? children : <Outlet />}
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className="main-layout-content">
+        <Navbar toggleSidebar={toggleSidebar} />
+        <div className="main-content">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+.nearby-hospitals-page {
+  background-color: #0e1f1c; /* dark green theme */
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+}

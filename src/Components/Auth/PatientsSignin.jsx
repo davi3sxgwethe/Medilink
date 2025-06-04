@@ -18,8 +18,15 @@ const PatientSignIn = () => {
       });
 
       if (res.data.success) {
+        // ✅ Store user credentials in localStorage
+        localStorage.setItem('user', JSON.stringify({
+          username: res.data.name || '', // Adjust based on actual response fields
+          email: res.data.email || email,
+          token: res.data.token // Optional
+        }));
+
         setMessage(res.data.success);
-        navigate('/get-services'); // Navigate on success
+        navigate('/get-services');
       } else {
         setMessage('Unexpected response.');
       }
@@ -33,26 +40,32 @@ const PatientSignIn = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h2>Patient Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign In</button>
-      </form>
-      {message && <p style={{ marginTop: '10px', color: 'red' }}>{message}</p>}
+    <div className="auth-wrapper">
+      <div className="auth-box">
+        <h2 className="auth-title">Patient Sign In</h2>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button className="auth-button" type="submit">Sign In</button>
+        </form>
+        {message && <p className="auth-message" style={{ color: 'red' }}>{message}</p>}
+      </div>
     </div>
   );
 };

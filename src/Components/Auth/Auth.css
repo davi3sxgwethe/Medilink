@@ -1,0 +1,107 @@
+.auth-wrapper {
+  background-color: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.auth-box {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+
+.auth-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0c2f36;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ Updated to fix spacing issue */
+.auth-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Controlled spacing between form groups */
+}
+
+.auth-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.auth-form input {
+  padding: 12px 14px;
+  border: 1px solid #ccdce2;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #00c2c7;
+  box-shadow: 0 0 0 2px rgba(0, 194, 199, 0.2);
+}
+
+.auth-button {
+  background-color: #00c2c7;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #009aa1;
+}
+
+.info-text {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 25px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.auth-footer a {
+  color: #00c2c7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-message {
+  margin-top: 15px;
+  color: green;
+  text-align: center;
+  font-weight: 500;
+}

@@ -1,23 +1,34 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './AuthChoice.css';
+// // AuthDropdown.jsx
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import './AuthChoice.css';
 
-const AuthChoice = ({ type }) => {
-  const navigate = useNavigate();
+// const AuthDropdown = ({ type = 'signin' }) => {
+//   const [open, setOpen] = useState(false);
+//   const navigate = useNavigate();
 
-  return (
-    <div className="auth-choice-container">
-      <h2>{type === 'signin' ? 'Sign In' : 'Sign Up'} as:</h2>
-      <div className="role-buttons">
-        <button onClick={() => navigate(`/${type}/patient`)} className="auth-btn">
-          Patient
-        </button>
-        <button onClick={() => navigate(`/${type}/doctor`)} className="auth-btn">
-          Doctor
-        </button>
-      </div>
-    </div>
-  );
-};
+//   const handleNavigate = (role) => {
+//     navigate(`/${type}/${role}`);
+//     setOpen(false);
+//   };
 
-export default AuthChoice;
+//   return (
+//     <div className="auth-dropdown" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+//       <button className="auth-dropdown-trigger">
+//         {type === 'signin' ? 'Sign in' : 'Get Started'}
+//       </button>
+//       {open && (
+//         <div className="auth-dropdown-menu">
+//           <button className="dropdown-option provider" onClick={() => handleNavigate('doctor')}>
+//             I'm a provider <span className="arrow">→</span>
+//           </button>
+//           <button className="dropdown-option patient" onClick={() => handleNavigate('patient')}>
+//             I'm a patient <span className="arrow">→</span>
+//           </button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default AuthDropdown;

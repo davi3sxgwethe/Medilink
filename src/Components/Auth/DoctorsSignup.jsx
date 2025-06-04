@@ -11,7 +11,7 @@ const DoctorSignUp = () => {
   });
 
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Only new addition
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,8 +22,16 @@ const DoctorSignUp = () => {
 
     try {
       const res = await axios.post('https://davi3s.pythonanywhere.com/api/doctor_signup', form);
-      setMessage(res.data.success || 'Sign up successful!');
-      navigate('/doctor-dashboard'); // Only new addition
+
+      // ✅ Store user credentials in localStorage
+      localStorage.setItem('user', JSON.stringify({
+        username: res.data.name || form.name,
+        email: res.data.email || form.email,
+        token: res.data.token // optional
+      }));
+
+      setMessage('Sign up successful. Your account is pending admin approval.');
+      // No redirect until approval is granted
     } catch (error) {
       if (error.response && error.response.data.error) {
         setMessage(error.response.data.error);
@@ -34,16 +42,30 @@ const DoctorSignUp = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h2>Doctor Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Full Name" onChange={handleChange} required />
-        <input name="email" placeholder="Email" onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-        <input name="specialty" placeholder="Specialty" onChange={handleChange} required />
-        <button type="submit">Sign Up</button>
-      </form>
-      {message && <p style={{ marginTop: '10px', color: 'green' }}>{message}</p>}
+    <div className="auth-wrapper">
+      <div className="auth-box">
+        <h2 className="auth-title">Doctor Sign Up</h2>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Full Name</label>
+            <input name="name" value={form.name} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input name="email" type="email" value={form.email} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input name="password" type="password" value={form.password} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>Specialty</label>
+            <input name="specialty" value={form.specialty} onChange={handleChange} required />
+          </div>
+          <button className="auth-button" type="submit">Sign Up</button>
+        </form>
+        {message && <p className="auth-message">{message}</p>}
+      </div>
     </div>
   );
 };

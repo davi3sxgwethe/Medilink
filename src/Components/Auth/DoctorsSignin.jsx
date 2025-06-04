@@ -17,15 +17,19 @@ const DoctorSignIn = () => {
         password
       });
 
-      console.log(res.data);
-
       if (res.data.success) {
-        // ✅ Save doctor name and full info
-        localStorage.setItem('doctorName', res.data.user.name);
-        localStorage.setItem('doctor', JSON.stringify(res.data.user));
-
-        setMessage(res.data.success);
-        navigate('/doctor-dashboard'); // Navigate on success
+        if (res.data.user && res.data.user.is_approved === false) {
+          setMessage('Your account has not been approved by the admin yet.');
+        } else {
+          // ✅ Store user credentials in a consistent format
+          localStorage.setItem('user', JSON.stringify({
+            username: res.data.user.name,
+            email: res.data.user.email,
+            token: res.data.token // optional if available
+          }));
+          setMessage(res.data.success);
+          navigate('/doctor-dashboard');
+        }
       } else {
         setMessage('Unexpected response');
       }
@@ -39,26 +43,32 @@ const DoctorSignIn = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h2>Doctor Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign In</button>
-      </form>
-      {message && <p style={{ marginTop: '10px', color: 'red' }}>{message}</p>}
+    <div className="auth-wrapper">
+      <div className="auth-box">
+        <h2 className="auth-title">Doctor Sign In</h2>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button className="auth-button" type="submit">Sign In</button>
+        </form>
+        {message && <p className="auth-message" style={{ color: 'red' }}>{message}</p>}
+      </div>
     </div>
   );
 };

@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
-  FaBars, FaTimes, FaHome, FaUserMd, FaStethoscope, FaEnvelope, FaSignInAlt
+  FaBars, FaTimes, FaHome, FaUserMd, FaStethoscope, FaEnvelope, FaSignInAlt,
+  FaAmericanSignLanguageInterpreting,
+  FaHospital
 } from 'react-icons/fa';
 import './Sidebar.css';
+import { Icon } from 'lucide-react';
+
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,11 +31,15 @@ function Sidebar() {
   }, [isOpen]);
 
   const menuItems = [
-    { icon: <FaHome />, label: 'Home', path: '/' },
+    { icon: <FaSignInAlt/>,label:'Admin login⚠️',path:'/adminpage'},
     { icon: <FaStethoscope />, label: 'Services', path: '/get-services' },
     { icon: <FaUserMd />, label: 'Dashboard', path: '/doctor-dashboard' },
-    { icon: <FaEnvelope />, label: 'Messages', path: '/messages' },
-    { icon: <FaSignInAlt />, label: 'Sign In', path: '/signin' }
+    { icon: <FaHome/>, label:'Emergency Help',path:'/nearby-hospitals'},
+    { icon: <FaSignInAlt />, label: 'Sign In', path: '/signin' },
+    { icon: <FaAmericanSignLanguageInterpreting/>,label: 'Chatbot',path:'/chatbot' },
+    { icon: <FaEnvelope/>,label:'Articles',path: '/articles'},
+    
+    
   ];
 
   return (
@@ -85,7 +93,7 @@ function Sidebar() {
             alt="Profile"
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = `${process.env.PUBLIC_URL}/default-profile.jpg`;
+              e.target.src = `${process.env.PUBLIC_URL}/davies.jpg`;
             }}
           />
           <div className="profile-details">
