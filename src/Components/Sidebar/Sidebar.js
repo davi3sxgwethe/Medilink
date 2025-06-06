@@ -12,7 +12,6 @@ import { Icon } from 'lucide-react';
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
-
   // Close sidebar on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -35,9 +34,10 @@ function Sidebar() {
     { icon: <FaStethoscope />, label: 'Services', path: '/get-services' },
     { icon: <FaUserMd />, label: 'Dashboard', path: '/doctor-dashboard' },
     { icon: <FaHome/>, label:'Emergency Help',path:'/nearby-hospitals'},
-    { icon: <FaSignInAlt />, label: 'Sign In', path: '/signin' },
+    { icon: <FaSignInAlt />, label: 'Sign In', path: 'signin/patient' },
     { icon: <FaAmericanSignLanguageInterpreting/>,label: 'Chatbot',path:'/chatbot' },
     { icon: <FaEnvelope/>,label:'Articles',path: '/articles'},
+    { icon: <FaHospital/>,label:'AboutUs',path:'/aboutus'}
     
     
   ];

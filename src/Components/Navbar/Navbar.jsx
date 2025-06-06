@@ -66,7 +66,7 @@ const Navbar = () => {
             className={`nav-btn ${showSignUpDropdown ? 'active' : ''}`}
             onClick={() => toggleDropdown('signup')}
           >
-            Sign Up ▾
+            Get Started ▾
           </button>
           {showSignUpDropdown && (
             <div className="auth-dropdown">

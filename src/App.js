@@ -22,6 +22,7 @@ import Articles from './Components/Articles';
 import NearbyHospitals from './Components/NearbyHospitals';
 import AdminDashboard from './Components/AdminDashboard';
 import AdminSignIn from './Components/AdminSignIn';
+import AboutUs from './Components/AboutUs';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path= "/nearby-hospitals" element={<NearbyHospitals/>}/>
         <Route path="/admin-dashboard"element={<AdminDashboard/>}/>
         <Route path="/adminpage"element={<AdminSignIn/>}/>
+        <Route path = "/aboutus" element={<AboutUs/>}/>
       </Route>
 
       {/* Auth Routes - No Sidebar or Navbar */}

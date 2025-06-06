@@ -4,7 +4,7 @@ import "./Carousel.css";
 
 const images = [
     "/images/Projectimage1.jpg",
-    "/images/dentist-4373290.jpg",
+    "/images/Woman2.jpg",
     "/images/computer-1149148.jpg",
     "/images/pexels-tima-miroshnichenko-8376277.jpg",
 ];

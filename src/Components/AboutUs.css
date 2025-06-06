@@ -1,0 +1,104 @@
+.about-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1c1c1c;
+  line-height: 1.6;
+  background-color: #f9fdfb;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+/* Mission Section */
+.mission-section,
+.team-section,
+.cta-section {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.mission-section h2,
+.team-section h2 {
+  font-size: 2rem;
+  color: #146356;
+  margin-bottom: 1rem;
+}
+
+.mission-section p,
+.team-section p {
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: #e0f2f1;
+  border-radius: 16px;
+  padding: 2.5rem 1rem;
+}
+
+.cta-button {
+  margin-top: 1rem;
+  background-color: #146356;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #104f45;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .mission-section,
+  .team-section,
+  .cta-section {
+    padding: 0 1.2rem;
+  }
+}
