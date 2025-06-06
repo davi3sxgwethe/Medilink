@@ -6,7 +6,6 @@ import {
   FaHospital
 } from 'react-icons/fa';
 import './Sidebar.css';
-import { Icon } from 'lucide-react';
 
 
 function Sidebar() {

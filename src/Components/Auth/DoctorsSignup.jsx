@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const DoctorSignUp = () => {
   const [form, setForm] = useState({
@@ -11,7 +10,6 @@ const DoctorSignUp = () => {
   });
 
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

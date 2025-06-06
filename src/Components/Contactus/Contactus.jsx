@@ -26,7 +26,7 @@ const ContactUs = () => {
           <h2>Request a Demo</h2>
           <p>
             Doctor On Demand is now part of Included Health.{" "}
-            <a href="#">Request a demo</a> to learn more about how our solutions
+            <a href="/chatbot">Request a demo</a> to learn more about how our solutions
             are helping employers, health plans, consultants and more.
           </p>
         </div>
